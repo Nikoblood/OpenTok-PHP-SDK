@@ -22,7 +22,7 @@ class ArchiveTest extends TestCase
 
     protected static $mockBasePath;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         self::$mockBasePath = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'mock' . DIRECTORY_SEPARATOR;
     }
@@ -294,7 +294,6 @@ class ArchiveTest extends TestCase
         $archiveJson = $this->archive->toJson();
 
         // Assert
-        $this->assertInternalType('string', $archiveJson);
         $this->assertNotNull(json_encode($archiveJson));
     }
 
@@ -308,7 +307,6 @@ class ArchiveTest extends TestCase
         $archiveArray = $this->archive->toArray();
 
         // Assert
-        $this->assertInternalType('array', $archiveArray);
         $this->assertEquals($this->archiveData, $archiveArray);
     }
 }
